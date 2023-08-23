@@ -89,11 +89,9 @@ target_include_directories(QCodeEditor PUBLIC
     include
 )
 
-if(CMAKE_COMPILER_IS_GNUCXX)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     target_compile_options(QCodeEditor
 		PRIVATE
-		-ansi
-		-pedantic
 		-Wall
 		-Wextra
 		-Weffc++
@@ -101,7 +99,7 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 		-Winit-self
 		-Wunreachable-code
 	)
-endif(CMAKE_COMPILER_IS_GNUCXX)
+endif()
 
 target_link_libraries(QCodeEditor
     Qt6::Core
